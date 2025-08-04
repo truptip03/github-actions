@@ -1,0 +1,18 @@
+---
+name: java file setup
+on:
+  push:
+    branches: -main
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+    steps:
+      - name: set up java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: compile java programs
+        run: javac Prog1.java
+      - name: run java programs
+        run: run Prog1
